@@ -24,7 +24,6 @@ namespace Mandelbrot_Fractals
         double centerX, centerY;
         double zoomScale;
 
-        int numColors = 85;
         int height = 600;
         int width = 800;
         int max;
@@ -33,21 +32,25 @@ namespace Mandelbrot_Fractals
 
         private ColorArray colorArray;
 
-        public Mandrelbrot(double zoom, double centerX, double centerY, int max)
+        public Mandrelbrot(int width, int height, double zoom, double centerX, double centerY, int max)
         {
             this.max = max;
+
             if(max < maxColors)
             {
-                colorArray = new ColorArray(max, max);
+                colorArray = new ColorArray(max);
             }
             else
             {
-                colorArray = new ColorArray(maxColors, maxColors);
+                colorArray = new ColorArray(maxColors);
             }
 
             this.zoomScale = zoom;
             this.centerX = centerX;
             this.centerY = centerY;
+
+            this.width = width;
+            this.height = height;
         }
 
         public Bitmap mandrelbrotFractalBMP()
@@ -98,49 +101,6 @@ namespace Mandelbrot_Fractals
 
             lockBitmap.UnlockBits();
             return returnBMP;
-        }
-    }
-
-    class ComplexPoint
-    {
-        public double R;
-        public double Im;
-
-        public ComplexPoint(double R, double Im)
-        {
-            this.R = R;
-            this.Im = Im;
-        }
-
-        public static double Abs(ComplexPoint value)
-        {
-            double c = Math.Abs(value.R);
-            double d = Math.Abs(value.Im);
-
-            if (c > d)
-            {
-                double r = d / c;
-                return c * Math.Sqrt(1.0 + r * r);
-            }
-            else if (d == 0.0)
-            {
-                return c;  // c is either 0.0 or NaN
-            }
-            else
-            {
-                double r = c / d;
-                return d * Math.Sqrt(1.0 + r * r);
-            }
-        }
-
-        public static ComplexPoint operator +(ComplexPoint x, ComplexPoint y)
-        {
-            return new ComplexPoint(x.R + y.R, x.Im + y.Im);
-        }
-
-        public static ComplexPoint operator *(ComplexPoint x, ComplexPoint y)
-        {
-            return new ComplexPoint(x.R * y.R - x.Im * y.Im, x.R * y.Im + x.Im * y.R);
         }
     }
 }

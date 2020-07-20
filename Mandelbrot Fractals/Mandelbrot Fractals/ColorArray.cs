@@ -9,27 +9,12 @@ namespace Mandelbrot_Fractals
 {
     public class ColorArray
     {
-        public int iterations;
         public int numColor;
         private Color[] colorArray;
 
         public ColorArray(int numColor)
         {
             this.numColor = numColor;
-            colorArray = new Color[numColor];
-
-            for(int i = 0; i < numColor; i++)
-            {
-                colorArray[i] = colorFromHSLA(i / 256f, 1, i / (i + 8f));
-            }
-        }
-
-        public ColorArray(int numColor, int iterations)
-        {
-            this.numColor = numColor;
-            this.iterations = iterations;
-
-            double scale = ((double)numColor) / iterations;
             colorArray = new Color[numColor];
 
             for (int i = 0; i < numColor; i++)

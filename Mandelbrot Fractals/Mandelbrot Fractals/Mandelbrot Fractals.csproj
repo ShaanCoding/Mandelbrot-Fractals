@@ -72,6 +72,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ColorArray.cs" />
+    <Compile Include="ComplexPoint.cs" />
     <Compile Include="LockBitmap.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
