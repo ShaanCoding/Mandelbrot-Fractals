@@ -68,16 +68,18 @@ namespace Mandelbrot_Fractals
         private void GeneratePatternButton_Click(object sender, RoutedEventArgs e)
         {
             Int32.TryParse(IterationTextBox.Text, out int iterations);
-            max = iterations;
+            max = (iterations > 0) ? iterations : max;
 
-            Int32.TryParse(ZoomScaleTextBox.Text, out int zoomScale);
-            zoom = zoomScale;
+            Double.TryParse(ZoomScaleTextBox.Text, out double zoom);
+            this.zoom = (zoom != 0) ? zoom : this.zoom;
 
-            Int32.TryParse(CenterXTextBox.Text, out int XCenter);
-            centerX = XCenter;
+            Double.TryParse(CenterXTextBox.Text, out double XCenter);
+            this.centerX = XCenter;
 
-            Int32.TryParse(CenterYTextBox.Text, out int YCenter);
-            centerY = YCenter;
+            Double.TryParse(CenterYTextBox.Text, out double YCenter);
+            this.centerY = YCenter;
+
+            UpdateLabels();
 
             mandelbrot = new Mandelbrot(width, height, zoom, centerX, centerY, max);
             MandrelbrotImage.Source = Convert(mandelbrot.mandelBrotFractalBMP());
