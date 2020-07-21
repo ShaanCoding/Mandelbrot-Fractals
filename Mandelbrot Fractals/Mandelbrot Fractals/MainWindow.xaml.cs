@@ -23,7 +23,7 @@ namespace Mandelbrot_Fractals
     /// </summary>
     public partial class MainWindow : Window
     {
-        Mandrelbrot mandrelbrot;
+        Mandelbrot mandelbrot;
         double zoom = 5;
         double centerX = 0, centerY = 0;
         int max = 85;
@@ -38,8 +38,8 @@ namespace Mandelbrot_Fractals
 
         private void Mandelbrot_Fractals_ContentRendered(object sender, EventArgs e)
         {
-            mandrelbrot = new Mandrelbrot(width, height, zoom, centerX, centerY, max);
-            MandrelbrotImage.Source = Convert(mandrelbrot.mandrelbrotFractalBMP());
+            mandelbrot = new Mandelbrot(width, height, zoom, centerX, centerY, max);
+            MandrelbrotImage.Source = Convert(mandelbrot.mandelBrotFractalBMP());
         }
 
         private void MandrelbrotImage_MouseDown(object sender, MouseButtonEventArgs e)
@@ -60,8 +60,8 @@ namespace Mandelbrot_Fractals
 
                 UpdateLabels();
 
-                mandrelbrot = new Mandrelbrot(width, height, zoom, centerX, centerY, max);
-                MandrelbrotImage.Source = Convert(mandrelbrot.mandrelbrotFractalBMP());
+                mandelbrot = new Mandelbrot(width, height, zoom, centerX, centerY, max);
+                MandrelbrotImage.Source = Convert(mandelbrot.mandelBrotFractalBMP());
             }
         }
 
@@ -79,8 +79,8 @@ namespace Mandelbrot_Fractals
             Int32.TryParse(CenterYTextBox.Text, out int YCenter);
             centerY = YCenter;
 
-            mandrelbrot = new Mandrelbrot(width, height, zoom, centerX, centerY, max);
-            MandrelbrotImage.Source = Convert(mandrelbrot.mandrelbrotFractalBMP());
+            mandelbrot = new Mandelbrot(width, height, zoom, centerX, centerY, max);
+            MandrelbrotImage.Source = Convert(mandelbrot.mandelBrotFractalBMP());
         }
 
         private void ZoomCheckBox_Checked(object sender, RoutedEventArgs e)
@@ -98,7 +98,7 @@ namespace Mandelbrot_Fractals
 
                 if(saveFileDialog.ShowDialog() == CommonFileDialogResult.Ok)
                 {
-                    mandrelbrot.mandrelbrotFractalBMP().Save(saveFileDialog.FileName);
+                    mandelbrot.mandelBrotBMP.Save(saveFileDialog.FileName);
                 }
             }
         }

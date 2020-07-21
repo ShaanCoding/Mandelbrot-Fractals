@@ -74,16 +74,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ColorArray.cs" />
-    <Compile Include="ComplexPoint.cs" />
-    <Compile Include="LockBitmap.cs" />
+    <Compile Include="Mandelbrot.Library\ColorArray.cs" />
+    <Compile Include="Mandelbrot.Library\ComplexPoint.cs" />
+    <Compile Include="Mandelbrot.Library\LockBitmap.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mandrelbrot.cs" />
+    <Compile Include="Mandelbrot.Library\Mandelbrot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -113,5 +113,6 @@
   <ItemGroup>
     <Resource Include="Assets\icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

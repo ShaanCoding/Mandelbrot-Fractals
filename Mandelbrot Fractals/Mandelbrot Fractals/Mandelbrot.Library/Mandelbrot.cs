@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mandelbrot_Fractals
 {
-    class Mandrelbrot
+    class Mandelbrot
     {
         //Screen space 1920 * 1080
         //Image space -2, 1
@@ -31,9 +31,9 @@ namespace Mandelbrot_Fractals
         private const int maxColors = 1000;
         private ColorArray colorArray;
 
-        public Bitmap mandrelBrotBMP;
+        public Bitmap mandelBrotBMP;
 
-        public Mandrelbrot(int width, int height, double zoom, double centerX, double centerY, int max)
+        public Mandelbrot(int width, int height, double zoom, double centerX, double centerY, int max)
         {
             this.max = max;
             this.zoomScale = zoom;
@@ -45,7 +45,7 @@ namespace Mandelbrot_Fractals
             colorArray = (max < maxColors) ? new ColorArray(max) : new ColorArray(maxColors);
         }
 
-        public Bitmap mandrelbrotFractalBMP()
+        public Bitmap mandelBrotFractalBMP()
         {
             Bitmap returnBMP = new Bitmap(width, height);
 
@@ -93,7 +93,7 @@ namespace Mandelbrot_Fractals
 
             lockBitmap.UnlockBits();
 
-            mandrelBrotBMP = returnBMP;
+            mandelBrotBMP = returnBMP;
             return returnBMP;
         }
     }
