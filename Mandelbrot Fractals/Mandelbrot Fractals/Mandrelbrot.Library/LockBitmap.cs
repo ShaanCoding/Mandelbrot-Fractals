@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Mandelbrot_Fractals
 {
+    //Credits to Vano Maisurdaze For LockBitmap Class
+    //https://github.com/vano-maisuradze/lock-bitmap
+
     public class LockBitmap
     {
         Bitmap source = null;

@@ -42,18 +42,6 @@ namespace Mandelbrot_Fractals
             MandrelbrotImage.Source = Convert(mandrelbrot.mandrelbrotFractalBMP());
         }
 
-        public static BitmapImage Convert(Bitmap src)
-        {
-            MemoryStream ms = new MemoryStream();
-            ((System.Drawing.Bitmap)src).Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            ms.Seek(0, SeekOrigin.Begin);
-            image.StreamSource = ms;
-            image.EndInit();
-            return image;
-        }
-
         private void MandrelbrotImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if(zoomBool)
@@ -121,6 +109,18 @@ namespace Mandelbrot_Fractals
             IterationTextBox.Text = max.ToString();
             CenterXTextBox.Text = centerX.ToString();
             CenterYTextBox.Text = centerY.ToString();
+        }
+
+        public static BitmapImage Convert(Bitmap src)
+        {
+            MemoryStream ms = new MemoryStream();
+            ((System.Drawing.Bitmap)src).Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            ms.Seek(0, SeekOrigin.Begin);
+            image.StreamSource = ms;
+            image.EndInit();
+            return image;
         }
     }
 }

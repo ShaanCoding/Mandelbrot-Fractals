@@ -9,7 +9,7 @@ namespace Mandelbrot_Fractals
 {
     public class ColorArray
     {
-        public int numColor;
+        private int numColor;
         private Color[] colorArray;
 
         public ColorArray(int numColor)

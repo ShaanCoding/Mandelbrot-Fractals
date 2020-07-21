@@ -38,6 +38,7 @@ namespace Mandelbrot_Fractals
             }
         }
 
+        //Something new I learnt for classes you can create your own custom operator definitions.
         public static ComplexPoint operator +(ComplexPoint x, ComplexPoint y)
         {
             return new ComplexPoint(x.R + y.R, x.Im + y.Im);

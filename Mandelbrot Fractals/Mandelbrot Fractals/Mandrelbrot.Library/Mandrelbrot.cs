@@ -21,36 +21,28 @@ namespace Mandelbrot_Fractals
             X' = ((X - SMin) / (SMax - SMin)) * (IMax - IMin) + IMin
          */
 
-        double centerX, centerY;
-        double zoomScale;
+        private double centerX;
+        private double centerY;
+        private double zoomScale;
+        private int height;
+        private int width;
+        private int max;
 
-        int height = 600;
-        int width = 800;
-        int max;
-
-        int maxColors = 1000;
-
+        private const int maxColors = 1000;
         private ColorArray colorArray;
+
+        public Bitmap mandrelBrotBMP;
 
         public Mandrelbrot(int width, int height, double zoom, double centerX, double centerY, int max)
         {
             this.max = max;
-
-            if(max < maxColors)
-            {
-                colorArray = new ColorArray(max);
-            }
-            else
-            {
-                colorArray = new ColorArray(maxColors);
-            }
-
             this.zoomScale = zoom;
             this.centerX = centerX;
             this.centerY = centerY;
-
             this.width = width;
             this.height = height;
+
+            colorArray = (max < maxColors) ? new ColorArray(max) : new ColorArray(maxColors);
         }
 
         public Bitmap mandrelbrotFractalBMP()
@@ -100,6 +92,8 @@ namespace Mandelbrot_Fractals
             });
 
             lockBitmap.UnlockBits();
+
+            mandrelBrotBMP = returnBMP;
             return returnBMP;
         }
     }
