@@ -27,7 +27,7 @@ namespace Mandelbrot_Fractals
         double zoom = 5;
         double centerX = 0, centerY = 0;
         int max = 85;
-        bool zoomBool = false;
+        bool zoomBool = true;
         int width = 800;
         int height = 600;
 

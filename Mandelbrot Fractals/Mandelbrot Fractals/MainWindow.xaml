@@ -5,19 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mandelbrot_Fractals"
         mc:Ignorable="d"
-        Title="Mandelbrot Fractals" Height="600" Width="1000" ContentRendered="Mandelbrot_Fractals_ContentRendered">
+        Title="Mandelbrot Fractals" Height="600" Width="1000" ContentRendered="Mandelbrot_Fractals_ContentRendered" Icon="Assets/icon.ico" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Image x:Name="MandrelbrotImage" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="Auto" MouseDown="MandrelbrotImage_MouseDown"/>
-        <Label Content="Iterations:" HorizontalAlignment="Left" Margin="828,11,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="IterationTextBox" HorizontalAlignment="Left" Height="23" Margin="835,35,0,0" TextWrapping="Wrap" Text="85" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Zoom Scale:" HorizontalAlignment="Left" Margin="835,66,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="ZoomScaleTextBox" HorizontalAlignment="Left" Height="23" Margin="832,91,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="GeneratePatternButton" Content="Generate Pattern" HorizontalAlignment="Left" Margin="859,191,0,0" VerticalAlignment="Top" Width="75" Click="GeneratePatternButton_Click"/>
-        <CheckBox x:Name="ZoomCheckBox" Content="Zoom" HorizontalAlignment="Left" Margin="833,126,0,0" VerticalAlignment="Top" Checked="ZoomCheckBox_Checked"/>
-        <Button x:Name="SaveFileButton" Content="Save File" HorizontalAlignment="Left" Margin="869,231,0,0" VerticalAlignment="Top" Width="75" Click="SaveFileButton_Click"/>
-        <Label Content="Center X:" HorizontalAlignment="Left" Margin="838,266,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="CenterXTextBox" HorizontalAlignment="Left" Height="23" Margin="842,295,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Center Y:" HorizontalAlignment="Left" Margin="838,327,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="CenterYTextBox" HorizontalAlignment="Left" Height="23" Margin="842,358,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="800px"/>
+            <ColumnDefinition Width="200px"/>
+        </Grid.ColumnDefinitions>
+
+        <Image x:Name="MandrelbrotImage" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="Auto" MouseDown="MandrelbrotImage_MouseDown" Grid.Column="0"/>
+
+        <UniformGrid Rows="11" Grid.Column="1" Margin="0, 20">
+            <Label Content="Iterations:" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+            <TextBox x:Name="IterationTextBox" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="85" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Zoom Scale:" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+            <TextBox x:Name="ZoomScaleTextBox" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="5" VerticalAlignment="Center" Width="120"/>
+            <Button x:Name="GeneratePatternButton" Content="Generate Pattern" HorizontalAlignment="Center" VerticalAlignment="Center" Width="125" Click="GeneratePatternButton_Click" Height="30" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="White" Background="#FF2E2E2E"/>
+            <CheckBox x:Name="ZoomCheckBox" Content="Zoom" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="ZoomCheckBox_Checked" IsChecked="True" FontWeight="Bold" FontSize="14"/>
+            <Button x:Name="SaveFileButton" Content="Save File" HorizontalAlignment="Center" VerticalAlignment="Center" Width="125" Click="SaveFileButton_Click" Height="30" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="White" Background="#FF2E2E2E"/>
+            <Label Content="Center X:" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+            <TextBox x:Name="CenterXTextBox" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Center Y:" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+            <TextBox x:Name="CenterYTextBox" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Width="120"/>
+        </UniformGrid>
     </Grid>
 </Window>
